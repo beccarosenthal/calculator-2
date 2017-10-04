@@ -34,10 +34,29 @@ def interpret_user_input(input_from_user):
     list_from_user = ready_for_splitting.split(" ")
     return list_from_user
  
-    #     if ready_for_splitting[0] == problem: #looking at the first item in list
-print interpret_user_input(get_user_input())
-    #         # do something
-    #     elif ready_for_splitting[1] == problem: #looking at second item
-    #         #do something
-    #     elif
-    # else:
+
+# print interpret_user_input(get_user_input())
+
+
+
+def REPL():
+    """runs game"""
+
+    while True:
+
+        user_input = get_user_input()
+        list_input = interpret_user_input(user_input)
+
+        command = list_input[0]
+        num1 = float(list_input[1])
+        num2 = float(list_input[len(list_input)-1]) #will be prob if more than 2 nums
+        valid_commands = ["+", "-", "*", "/", "square", "cube", "pow", "mod", "q"]
+
+        if command not in valid_commands:
+            print "That is not a valid command"
+            continue
+
+        elif command == "+":
+            print float(add(num1, num2))
+
+REPL()
