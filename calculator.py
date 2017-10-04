@@ -21,4 +21,25 @@ def get_user_input():
 
     return raw_input("> ")
 
-print "this is input", get_user_input()
+
+def interpret_user_input(input_from_user):
+    """take input from get_user_input, split it into list
+
+    two or three items in list: first is command, num1, num2
+
+    return list
+    """
+    # while True: #if there is a problem, get user input again
+    ready_for_splitting = get_user_input()
+    print "pre-split", ready_for_splitting
+    ready_for_splitting.split(" ")
+    print "after split", ready_for_splitting
+    print
+    return ready_for_splitting
+    #     if ready_for_splitting[0] == problem: #looking at the first item in list
+print interpret_user_input(get_user_input())
+    #         # do something
+    #     elif ready_for_splitting[1] == problem: #looking at second item
+    #         #do something
+    #     elif
+    # else:
