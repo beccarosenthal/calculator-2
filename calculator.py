@@ -48,8 +48,17 @@ def REPL():
         list_input = interpret_user_input(user_input)
 
         command = list_input[0]
-        num1 = float(list_input[1])
-        num2 = float(list_input[len(list_input)-1]) #will be prob if more than 2 nums
+
+        if command == "q":
+            break
+
+        try:
+            num1 = float(list_input[1])
+            num2 = float(list_input[2]) #will be prob if more than 2 nums
+        except:
+            print "That is not a valid entry. Try again."
+            continue
+
         valid_commands = ["+", "-", "*", "/", "square", "cube", "pow", "mod", "q"]
 
         if command not in valid_commands:
@@ -67,6 +76,12 @@ def REPL():
 
         elif command == "/":
             print float(divide(num1, num2))
+
+        elif command == "pow":
+            print float(power(num1, num2))
+        # elif command == "square":
+        #     print num1, num2
+        #     print float(square(num1))
 
 
 
