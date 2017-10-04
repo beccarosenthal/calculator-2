@@ -59,4 +59,15 @@ def REPL():
         elif command == "+":
             print float(add(num1, num2))
 
+        elif command == "-":
+            print float(subtract(num1, num2))
+
+        elif command == "*":
+            print float(multiply(num1, num2))
+
+        elif command == "/":
+            print float(divide(num1, num2))
+
+
+
 REPL()
