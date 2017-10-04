@@ -30,12 +30,10 @@ def interpret_user_input(input_from_user):
     return list
     """
     # while True: #if there is a problem, get user input again
-    ready_for_splitting = get_user_input()
-    print "pre-split", ready_for_splitting
-    ready_for_splitting.split(" ")
-    print "after split", ready_for_splitting
-    print
-    return ready_for_splitting
+    ready_for_splitting = input_from_user
+    list_from_user = ready_for_splitting.split(" ")
+    return list_from_user
+ 
     #     if ready_for_splitting[0] == problem: #looking at the first item in list
 print interpret_user_input(get_user_input())
     #         # do something
