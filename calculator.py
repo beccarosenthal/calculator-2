@@ -35,10 +35,17 @@ def interpret_user_input(input_from_user):
     return list_from_user
  
 
+def isolate_nums(list_with_strings):
+    list_to_try = list_with_strings[1:]
+    new_list = []
+    for item in list_to_try:
+        try:
+            float(item)
+        except:
+            return False
+        new_list.append(float(item))   
+    return new_list
 # print interpret_user_input(get_user_input())
-
-
-
 def REPL():
     """runs game"""
 
@@ -46,7 +53,9 @@ def REPL():
 
         user_input = get_user_input()
         list_input = interpret_user_input(user_input)
-
+        list_of_only_numbers = isolate_nums(list_input)
+        if list_of_only_numbers == False:
+            continue
         command = list_input[0]
 
         if command == "q":
@@ -76,10 +85,9 @@ def REPL():
             num2 = float(list_input[2]) #will be prob if more than 2 nums
         except:
             print "that is not a valid command. Try again."
-            continue
-     
+            continue    
         if command == "+":
-            print float(add(num1, num2))
+            print float(add(list_of_only_numbers))
 
         elif command == "-":
             print float(subtract(num1, num2))
@@ -95,6 +103,7 @@ def REPL():
 
         elif command == "mod":
             print float(mod(num1, num2))
+
         # elif command == "square":
         #     print num1, num2
         #     print float(square(num1))
